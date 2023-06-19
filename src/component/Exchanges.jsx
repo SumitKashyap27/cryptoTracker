@@ -1,10 +1,21 @@
-import React from 'react'
-import axios from 'axios'
-
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import { server } from '..';
+import { Container } from '@chakra-ui/react';
 const Exchanges = () => {
-  return (
-    <div>Exchanges</div>
-  )
+
+const [exchanges,setExchanges] = useState([]);
+
+  useEffect(()=>{
+    const fetchExchanges = async()=>{
+      const {data} = await axios.get(`${server}/exchanges`);
+      setExchanges(data);
+    };
+    fetchExchanges();
+  }, []);
+  return <Container maxW={"container.xl"}>da
+
+  </Container>
 }
 
 export default Exchanges
