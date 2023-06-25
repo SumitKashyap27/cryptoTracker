@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
-import { server } from '..';
+import { server } from '../index';
 import { Container, HStack, VStack, Image, Heading, Text } from '@chakra-ui/react';
 import Loader  from './Loader';
 import ErrorComponent from './ErrorComponent';
