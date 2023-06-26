@@ -63,10 +63,12 @@ const CoinDetails = () => {
             />
             <Stat>
               <StatLabel>{coins.name}</StatLabel>
-              <StatNumber>{currencySymbol}{coins.market_data.current_price[currency]}</StatNumber>
+              <StatNumber>
+                {currencySymbol}
+                {coins.market_data.current_price[currency]}</StatNumber>
               <StatHelpText>
-              <StatArrow type='decrease'/>
-              {coins.market_data.price_change_percentage_24th}%
+              <StatArrow type={coins.market_data.price_change_percentage_24h > 0?"increase":"decrease"}/>
+              
               </StatHelpText>
             </Stat>
 
