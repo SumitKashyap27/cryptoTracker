@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Container, HStack, Radio, RadioGroup, VStack, Text, Image, Stat, StatLabel, StatNumber, StatArrow, StatHelpText } from '@chakra-ui/react';
+import { Box, Container, HStack, Radio, RadioGroup, VStack, Text, Image, Stat, StatLabel, StatNumber, StatArrow, StatHelpText, Badge, Progress } from '@chakra-ui/react';
 import Loader from './Loader';
 import { useParams } from 'react-router-dom';
 import { server } from '../index';
@@ -67,16 +67,35 @@ const CoinDetails = () => {
                 {currencySymbol}
                 {coins.market_data.current_price[currency]}</StatNumber>
               <StatHelpText>
-              <StatArrow type={coins.market_data.price_change_percentage_24h > 0?"increase":"decrease"}/>
-              
+              <StatArrow type={coins.market_data.price_change_percentage_24h > 0
+                ?"increase":
+                "decrease"
+                }
+                />
+              {coins.market_data.price_change_percentage_24h}%
               </StatHelpText>
             </Stat>
-
+<Badge fontSize={"2xl"}
+    bgColor={"blackAlpha.800"}
+    color={"white"}>
+    {`#${coins.market_cap_rank}`}
+</Badge>
+<CustomBar high={232} low={40}/>
           </VStack>
         </>
       )
     }
   </Container> 
 }
+const CustomBar = ({high, low})=>{
+  <VStack w={"full"}>
+    <Progress value={50} colorScheme={"teal"} w={"full"}/>
+    <HStack justifyContent={"space-between"} w={"full"}>
+      <Badge children={low} colorScheme={'red'}/>
+        <Text fontSize={"sm"}>24H Range </Text>
+      <Badge children={high} colorScheme='green'/>
 
+    </HStack>
+  </VStack>
+}
 export default CoinDetails;
