@@ -87,6 +87,8 @@ low={`${currencySymbol}${coins.market_data.low_24h[currency]}`}/>
           <Item title = {"Max Supply"} value={coins.market_data.max_supply}/>
           <Item title = {"Circulating Supply"} value={coins.market_data.circulating_supply}/>
           <Item title = {"Market Capital"} value={`${currencySymbol}${coins.market_data.market_cap[currency]}`}/>
+          <Item title = {"All time Low"} value={`${currencySymbol}${coins.market_data.atl[currency]}`}/>
+          <Item title = {"All time High"} value={`${currencySymbol}${coins.market_data.ath[currency]}`}/>
         </Box>
           </VStack>
         </>
