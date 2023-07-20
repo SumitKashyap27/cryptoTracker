@@ -1,43 +1,44 @@
-import { Box, Image } from '@chakra-ui/react'
-import React from 'react'
-import {Carousel} from "react-responsive-carousel";
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import img1 from '../assets/1.jpg';
-import img2 from '../assets/2.jpg';
+import { Box, Image, Text } from "@chakra-ui/react";
+import React from "react";
+import btcSrc from "../assets/btc.png";
+import { motion } from "framer-motion";
 
 const Home = () => {
-  return <Box>
-    <MyCarousel/>
+  return (
+    <Box bgColor={"blackAlpha.900"} w={"full"} h={"85vh"}>
+      <motion.div
+        style={{
+          height: "80vh",
+        }}
+        animate={{
+          translateY: "20px",
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      >
+        <Image
+          w={"full"}
+          h={"full"}
+          objectFit={"contain"}
+          src={btcSrc}
+          filter={"grayscale(1)"}
+        />
+      </motion.div>
 
-  </Box>
-}
-
-const MyCarousel = ()=>(
-  <Carousel 
-  autoPlay
-  infiniteLoop
-  interval={1500}
-  showArrows={true}
-  showThumbs={true}
-  showStatus={false} 
-  >
-    <Box>
-      <Image 
-        w={"full"}
-        h={"full"}
-        objectFit={"fill"}
-        src={img1} 
-        filter={"grayscale(1)"} />
+      <Text
+        fontSize={"6xl"}
+        textAlign={"center"}
+        fontWeight={"thin"}
+        color={"whiteAlpha.700"}
+        mt={"-20"}
+      >
+        Xcrypto
+      </Text>
     </Box>
-    <Box>
-      <Image 
-        src={img2}         
-        w={"full"}
-        h={"full"}
-        objectFit={"fill"}
-        filter={"grayscale(1)"} />
-    </Box>
-  </Carousel>
-)
+  );
+};
 
-export default Home
+export default Home;
