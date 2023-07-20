@@ -6,7 +6,7 @@ const ErrorComponent = ({ message }) => {
     <Alert
       status="error"
       position={"fixed"}
-      bottom={"10"}
+      bottom={"4"}
       left={"50%"}
       transform={"translateX(-50%)"}
       w={"container.lg"}

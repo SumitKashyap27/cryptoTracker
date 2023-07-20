@@ -15,7 +15,7 @@ const Coins = () => {
 
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
-//for pagination
+
   const changePage = (page) => {
     setPage(page);
     setLoading(true);
